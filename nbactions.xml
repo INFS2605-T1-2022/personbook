@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<action>
+  <actionName>run</actionName>
+  <packagings>
+    <packaging>jar</packaging>
+  </packagings>
+  <goals>
+    <goal>process-classes</goal>
+    <goal>org.codehaus.mojo:exec-maven-plugin:1.6.0:exec</goal>
+  </goals>
+  <properties>
+    <!--<Env.JAVA_HOME>/Library/Java/JavaVirtualMachines/adoptopenjdk-12.jdk/Contents/Home</Env.JAVA_HOME>-->
+    <exec.args>--module-path ${project.build.directory}/modules --module ${moduleName}/${mainClass}</exec.args>
+    <exec.executable>java</exec.executable>
+  </properties>
+</action>

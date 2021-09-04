@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="au.edu.unsw.infs2605.personbook.PrimaryController">
+   <left>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <ListView fx:id="myListView" prefHeight="560.0" prefWidth="200.0" />
+         </center>
+         <top>
+            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <items>
+                  <Button fx:id="btnNew" mnemonicParsing="false" onAction="#userDidClickNew" text="New" />
+              </items>
+            </ToolBar>
+         </top>
+      </BorderPane>
+   </left>
+   <center>
+      <BorderPane BorderPane.alignment="CENTER">
+         <center>
+            <VBox spacing="20.0">
+               <children>
+                  <VBox prefHeight="55.0" prefWidth="314.0" spacing="10.0">
+                     <children>
+                        <Label text="Full Name">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtFullName" editable="false" onKeyTyped="#userDidUpdatePersonDetails" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="10.0">
+                     <children>
+                        <Label text="Birthday">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <FlowPane hgap="10.0">
+                           <children>
+                              <TextField fx:id="txtBdayDay" editable="false" onKeyTyped="#userDidUpdatePersonDetails" prefHeight="26.0" prefWidth="60.0" />
+                              <Label text="(day)" />
+                              <TextField fx:id="txtBdayMonth" editable="false" onKeyTyped="#userDidUpdatePersonDetails" prefHeight="26.0" prefWidth="60.0" />
+                              <Label text="(month)" />
+                              <TextField fx:id="txtBdayYear" editable="false" onKeyTyped="#userDidUpdatePersonDetails" prefHeight="26.0" prefWidth="60.0" />
+                              <Label text="(year)" />
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </VBox>
+                  <VBox spacing="10.0">
+                     <children>
+                        <Label text="Relationship Type">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <CheckBox fx:id="chkPersonal" disable="true" mnemonicParsing="false" onAction="#userDidUpdatePersonDetails" text="Important for personal reasons" />
+                        <CheckBox fx:id="chkBusiness" disable="true" mnemonicParsing="false" onAction="#userDidUpdatePersonDetails" text="Important for business reasons" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="10.0">
+                     <children>
+                        <Label fx:id="lblCaseNotes" text="Case Notes">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <HBox spacing="10.0">
+                           <children>
+                              <ChoiceBox fx:id="choiceBoxForCaseNotes" prefHeight="25.0" prefWidth="250.0" />
+                              <Button fx:id="btnNewCaseNote" mnemonicParsing="false" onAction="#userDidAddNewCaseNote" text="New" />
+                              <Button fx:id="btnCancelNewCaseNote" mnemonicParsing="false" onAction="#userDidCancelNewCaseNote" text="Cancel" />
+                              <Button fx:id="btnSaveCaseNote" disable="true" mnemonicParsing="false" onAction="#userDidClickSaveCaseNote" text="Save" />
+                           </children>
+                        </HBox>
+                        <TextArea fx:id="txtCaseNotes" onKeyTyped="#userDidUpdateActiveCaseNote" promptText="Please enter case notes here." />
+                     </children>
+                  </VBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </BorderPane.margin>
+            </VBox>
+         </center>
+         <top>
+            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <items>
+                  <ToggleButton fx:id="btnView" mnemonicParsing="false" selected="true" text="View" />
+                  <ToggleButton fx:id="btnEdit" mnemonicParsing="false" onAction="#userDidClickEdit" text="Edit" />
+                  <Separator orientation="VERTICAL" />
+                  <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#userDidClickCancel" text="Cancel" />
+                  <Button fx:id="btnSave" disable="true" mnemonicParsing="false" onAction="#userDidClickSave" text="Save" />
+               </items>
+            </ToolBar>
+         </top>
+      </BorderPane>
+   </center>
+</BorderPane>
